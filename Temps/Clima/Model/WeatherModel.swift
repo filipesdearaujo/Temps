@@ -15,7 +15,7 @@ struct WeatherModel {
     var temperatureString: String {
         return String(format: "%.1f", temperature)
     }
-    
+
     var conditionName: String {
         switch conditionId {
         case 200...232:
@@ -37,27 +37,45 @@ struct WeatherModel {
         }
     }
     
-    var backgroundColor: String {
+    var backgroundColor: [CGFloat] {
         switch conditionId {
         case 200...232:
-            return "232D48"//cloud.bolt
+            return [35, 45, 72] //"232D48" - cloud.bolt
         case 300...321:
-            return "232D48"//cloud.drizzle
+            return [35, 45, 72] //"232D48" - cloud.drizzle
         case 500...531:
-            return "232D48"//cloud.rain
+            return [35, 45, 72] //"232D48" - cloud.rain
         case 600...622:
-            return "232D48"//cloud.snow
+            return [35, 45, 72] //"232D48" - cloud.snow
         case 701...781:
-            return "232D48"//cloud.fog
+            return [35, 45, 72] //"232D48" - cloud.fog
         case 800:
-            return "F7E9BF"//circle.fill - sol
+            return [247, 233, 191] //"F7E9BF" - circle.fill - sol
         case 801...804:
-            return "232D48"//cloud.bolt - nuvem com trovao
+            return [35, 45, 72] //"232D48" - cloud.bolt - nuvem com trovao
         default:
-            return "707070"//cloud
+            return [112, 112, 112] //"707070" - cloud
         }
     }
     
-    
-    
+    var colorElements: [CGFloat] {
+        switch conditionId {
+        case 200...232:
+            return [255, 255, 255] //"232D48" - cloud.bolt
+        case 300...321:
+            return [255, 255, 255] //"232D48" - cloud.drizzle
+        case 500...531:
+            return [255, 255, 255] //"232D48" - cloud.rain
+        case 600...622:
+            return [255, 255, 255] //"232D48" - cloud.snow
+        case 701...781:
+            return [255, 255, 255] //"232D48" - cloud.fog
+        case 800:
+            return [0, 0, 0] //"F7E9BF" - circle.fill - sol
+        case 801...804:
+            return [255, 255, 255] //"232D48" - cloud.bolt - nuvem com trovao
+        default:
+            return [255, 255, 255] //"707070" - cloud
+        }
+    }    
 }
